@@ -1,0 +1,11 @@
+alias todo='$EDITOR ~/.todo'
+alias d=docker
+
+alias nom='npm cache clear && rm -rf node_modules && npm install'
+alias nombom='npm cache clear && bower cache clean && rm -rf node_modules bower_components && npm install && bower install'
+
+alias composer='php composer.phar'
+
+function mkcd() {
+  mkdir -p -- "$1" && cd -P -- "$1"
+}

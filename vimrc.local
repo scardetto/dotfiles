@@ -1,0 +1,40 @@
+" Run NERDTreeTabs on console startup
+let g:nerdtree_tabs_open_on_console_startup=0
+
+" Toggle NERDTreeTabs mapping
+map <C-n> :NERDTreeTabsToggle<CR>
+
+" Close vim if the only window left is NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" Enable quick searching
+nnoremap <Leader>f :Ag<space>
+
+" Enable mustache abbreviations
+let g:mustache_abbreviations = 1
+
+" let g:syntastic_mode_map={ 'mode': 'active',
+"                      \ 'active_filetypes': [],
+"                      \ 'passive_filetypes': ['html'] }
+
+" Determine the right linter to use based on the presence of the appropriate
+" config file
+let g:syntastic_javascript_checkers=['eslint']
+
+" colorscheme sunburst
+
+" Apply Macros with Q
+nnoremap Q @q
+vnoremap Q :norm @q<cr>
+
+" Clone paragraph
+noremap cp yap<S-}>p
+
+set laststatus=2  " Always display the statusline in all windows
+" set showtabline=2 " Always display the tabline, even if there is only one tab
+set noshowmode    " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+
+" Init powerline
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup

@@ -1,0 +1,44 @@
+" Folder tree viewer
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+
+" Integrated searching
+Plug 'rking/ag.vim'
+
+" Various shortcuts
+Plug 'tpope/vim-unimpaired'
+
+" Allow sessions to be saved
+Plug 'tpope/vim-obsession'
+
+" Run commands in new windows
+Plug 'tpope/vim-dispatch'
+
+" Status bar
+Plug 'Lokaltog/vim-powerline'
+
+" Argument manipulation
+Plug 'b4winckler/vim-angry'
+
+" Themes
+Plug 'sickill/vim-sunburst'
+
+" C# Support
+Plug 'OmniSharp/omnisharp-vim'
+
+" Autoclose braces and parens
+Plug 'Townk/vim-autoclose'
+
+" Clojure Support
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
+Plug 'tpope/vim-fireplace'
+Plug 'tpope/vim-salve'
+Plug 'guns/vim-sexp'
+Plug 'guns/vim-clojure-static'
+Plug 'guns/vim-clojure-highlight'
+
+" Syntax highlighting
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'pangloss/vim-javascript'
+Plug 'elixir-lang/vim-elixir'
+Plug 'digitaltoad/vim-jade'

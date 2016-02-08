@@ -1,0 +1,45 @@
+[alias]
+  # Shortcuts
+  br = branch
+  cl = clone
+  cp = cherry-pick
+  dc = diff --cached
+  r = reset
+  r1 = reset HEAD^
+  r2 = reset HEAD^^
+  rh = reset --hard
+  rh1 = reset HEAD^ --hard
+  rh2 = reset HEAD^^ --hard
+  sa = stash apply
+  st = status -s
+  sl = stash list
+  ss = stash save
+  stat = status
+  up = !git fetch origin && git rebase origin/master
+
+  # Diffing and Searching
+  diff = diff --word-diff
+  diffr = !sh -c 'git diff $1^..$1' -
+  dr = !sh -c 'git diff $1^..$1' -
+  dlc = diff --cached HEAD^
+  grep = grep -Ii
+  gr = grep -Ii
+  gra = !sh -c 'A=$(pwd) && TOPLEVEL=$(git rev-parse --show-toplevel) && cd $TOPLEVEL && git grep --full-name -In $1 | xargs -I{} echo $TOPLEVEL/{} && cd $A' -
+
+  # Log variations
+  dl = !sh -c 'git ll -1' -
+  f = !git ls-files | grep -i
+  filelog = log -u
+  fl = log -u
+  la = !git config -l | grep alias | cut -c 7-
+  lc = !sh -c 'git ll $1^..$1' -
+  ld = log --pretty=format:%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn] --decorate --date=relative
+  lds = log --pretty=format:%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn] --decorate --date=short
+  le = log --oneline --decorate
+  ll = log --pretty=format:%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn] --decorate --numstat
+  lnc = log --pretty=format:%h\\ %s\\ [%cn]
+  logtree = log --graph --oneline --decorate --all
+  ls = log --pretty=format:%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn] --decorate
+[user]
+  name = Rob Scaduto
+  email = rob@thirdwave.it

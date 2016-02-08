@@ -1,0 +1,55 @@
+# Docker configuration
+export DOCKER_TLS_VERIFY=1
+export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_CERT_PATH=/Users/rscaduto/.boot2docker/certs/boot2docker-vm
+
+# Load colors
+# autoload colors && colors
+#
+# __prompt_command() {
+#   local EXIT="$?"
+#   PS1=""
+#   PS1+="%{$fg[white]%}________________________________________________________________________________
+# "
+#   PS1+="%{$fg[cyan]%}["
+#
+#   if [ $EXIT -eq 0 ]; then
+#     PS1+="%{$fg[green]%}"
+#   else
+#     PS1+="%{$fg[red]%}"
+#   fi
+#   PS1+="$EXIT%{$fg[cyan]%}][%{$fg[white]%}%n@%m%{$fg[cyan]%}]%{$fg[green]%}%$(git_prompt_info) 
+# "
+#   PS1+="%{$fg[cyan]%}%~
+# "
+#   PS1+="$ %{$reset_color%}"
+# }
+#
+# precmd() {
+#   __prompt_command
+# }
+
+export RCRC=$HOME/dotfiles/rcrc
+
+# Add local bin
+PATH=$PATH:~/bin
+
+# Add MySQL
+# PATH=$PATH:/usr/local/mysql/bin
+
+# Add composer bin
+# PATH=$PATH:~/.composer/vendor/bin
+
+# Set Java environment variables
+export JAVA_HOME='/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home'
+
+# Include .NET runtime configuration
+source dnvm.sh
+
+# Configure Powerline
+powerline-daemon -q
+source /Library/Python/2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+
+# Source NVM
+export NVM_DIR="/Users/rscaduto/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

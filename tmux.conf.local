@@ -1,0 +1,75 @@
+# Set an easier prefix
+set -g prefix C-a
+
+# Unbind old prefix
+unbind C-b
+
+# Reduce delay
+set -s escape-time 1
+
+# Reload configuration
+bind r source-file ~/.tmux.conf \; display "Configuration reloaded!"
+
+# prefix -> back-one-character
+bind-key C-a send-prefix
+
+# Easy to remember panes
+bind | split-window -h
+bind - split-window -v
+
+# Resize panes
+bind -r H resize-pane -L 5
+bind -r J resize-pane -D 5
+bind -r K resize-pane -U 5
+bind -r L resize-pane -R 5
+
+# Enable mouse
+set-window-option -g mode-mouse on
+set-window-option -g mouse-select-pane on
+set-window-option -g mouse-resize-pane on
+set-window-option -g mouse-select-window on
+
+# Set status bar colors
+set -g status-fg white
+set -g status-bg black
+set-window-option -g window-status-fg cyan
+set-window-option -g window-status-bg default
+set-window-option -g window-status-attr dim
+set-window-option -g window-status-current-fg white
+set-window-option -g window-status-current-bg red
+set-window-option -g window-status-current-attr bright
+
+# Set pane border colors
+set -g pane-border-fg cyan
+set -g pane-border-bg black
+set -g pane-active-border-fg magenta
+set -g pane-active-border-bg black
+
+# Set command line colors
+set -g message-fg white
+set -g message-bg black
+set -g message-attr bright
+
+# Status line
+# set -g status-left "#S|"
+
+# Monitor activity
+set-window-option -g monitor-activity on
+set -g visual-activity on
+
+# Enable powerline
+run-shell "powerline-daemon -q"
+source "/Library/Python/2.7/site-packages/powerline/bindings/tmux/powerline.conf"
+
+# Restore vim sessions
+set -g @resurrect-strategy-vim session
+
+# Launch tmux on startup
+set -g @continuum-boot 'on'
+set -g @continuum-boot-options 'iterm,fullscreen'
+
+run-shell ~/.tmux/plugins/tmux-ressurect/resurrect.tmux
+run-shell ~/.tmux/plugins/tmux-continuum/continuum.tmux
+run-shell ~/.tmux/plugins/tmux-copycat/copycat.tmux
+run-shell ~/.tmux/plugins/tmux-yank/yank.tmux
+run-shell ~/.tmux/plugins/tmux-urlview/urlview.tmux
