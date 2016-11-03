@@ -23,11 +23,14 @@ bind -r J resize-pane -D 5
 bind -r K resize-pane -U 5
 bind -r L resize-pane -R 5
 
+# Move windows
+bind-key < swap-window -t -1
+bind-key > swap-window -t +1
+
 # Enable mouse
-set-window-option -g mode-mouse on
-set-window-option -g mouse-select-pane on
-set-window-option -g mouse-resize-pane on
-set-window-option -g mouse-select-window on
+set -g mouse on
+bind -n WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "send-keys -M" "if -Ft= '#{pane_in_mode}' 'send-keys -M' 'select-pane -t=; copy-mode -e; send-keys -M'"
+bind -n WheelDownPane select-pane -t= \; send-keys -M
 
 # Set status bar colors
 set -g status-fg white

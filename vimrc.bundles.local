@@ -2,6 +2,9 @@
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 
+" Support .editorconfig files
+Plug 'editorconfig/editorconfig-vim'
+
 " Integrated searching
 Plug 'rking/ag.vim'
 

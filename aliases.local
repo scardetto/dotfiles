@@ -1,5 +1,8 @@
 alias todo='$EDITOR ~/.todo'
 alias d=docker
+alias dcomp=docker-compose
+alias dmach=docker-machine
+alias dinit='eval $(docker-machine env)'
 
 alias nom='npm cache clear && rm -rf node_modules && npm install'
 alias nombom='npm cache clear && bower cache clean && rm -rf node_modules bower_components && npm install && bower install'
