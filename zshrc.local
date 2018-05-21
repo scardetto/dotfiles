@@ -3,8 +3,17 @@ autoload colors && colors
 
 export RCRC=$HOME/dotfiles/rcrc
 
+# Add cargo bin
+export PATH=$PATH:~/.cargo/bin
+
+# Add go bin
+export PATH=$PATH:~/go/bin
+
 # Add local bin
 export PATH=$PATH:~/bin
+
+# Java Home
+export JAVA_HOME=/Library/Java/Home
 
 # Load pyenv
 eval "$(pyenv init -)"
@@ -16,3 +25,12 @@ source /Library/Python/2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 # Load Node Version Manager
 export NVM_DIR="/Users/rscaduto/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+# Homebrew API token
+export HOMEBREW_GITHUB_API_TOKEN=89203abce7e693205b77e2bca2da8137b3b38d05
+
+# Kubernetes Autocomplete
+source <(kubectl completion zsh)
+
+# Kops State Store
+export KOPS_STATE_STORE=s3://kops-state.pxegroup.net

@@ -26,11 +26,11 @@ Plug 'b4winckler/vim-angry'
 " Themes
 Plug 'sickill/vim-sunburst'
 
-" C# Support
-Plug 'OmniSharp/omnisharp-vim'
-
 " Autoclose braces and parens
 Plug 'Townk/vim-autoclose'
+
+" Tmux naviagtion
+Plug 'christoomey/vim-tmux-navigator'
 
 " Clojure Support
 Plug 'tpope/vim-sexp-mappings-for-regular-people'

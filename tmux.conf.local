@@ -23,6 +23,12 @@ bind -r J resize-pane -D 5
 bind -r K resize-pane -U 5
 bind -r L resize-pane -R 5
 
+# Navigate panes
+bind -n C-h run "(tmux display-message -p '#{pane_current_command}' | grep -iqE '(^|\/)n?vim(diff)?$|emacs.*$' && tmux send-keys C-h) || tmux select-pane -L"
+bind -n C-j run "(tmux display-message -p '#{pane_current_command}' | grep -iqE '(^|\/)n?vim(diff)?$|emacs.*$' && tmux send-keys C-j) || tmux select-pane -D"
+bind -n C-k run "(tmux display-message -p '#{pane_current_command}' | grep -iqE '(^|\/)n?vim(diff)?$|emacs.*$' && tmux send-keys C-k) || tmux select-pane -U"
+bind -n C-l run "(tmux display-message -p '#{pane_current_command}' | grep -iqE '(^|\/)n?vim(diff)?$|emacs.*$' && tmux send-keys C-l) || tmux select-pane -R"
+
 # Move windows
 bind-key < swap-window -t -1
 bind-key > swap-window -t +1
@@ -63,6 +69,10 @@ set -g visual-activity on
 # Enable powerline
 run-shell "powerline-daemon -q"
 source "/Library/Python/2.7/site-packages/powerline/bindings/tmux/powerline.conf"
+
+# Fix copy/paste issue in Sierra
+set -g default-shell $SHELL
+set -g default-command "reattach-to-user-namespace -l ${SHELL}"
 
 # Restore vim sessions
 set -g @resurrect-strategy-vim session
