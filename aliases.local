@@ -7,7 +7,29 @@ alias dinit='eval $(docker-machine env)'
 alias nom='npm cache clear && rm -rf node_modules && npm install'
 alias nombom='npm cache clear && bower cache clean && rm -rf node_modules bower_components && npm install && bower install'
 
-alias composer='php composer.phar'
+alias emacs='emacs -nw'
+
+# Kubernetes aliases
+alias kube=kubectl
+alias kc=kubectl
+alias kgp='kubectl get pods'
+alias kgd='kubectl get deployments'
+alias kgs='kubectl get services'
+alias kgj='kubectl get jobs'
+alias kgi='kubectl get ingress'
+alias kgn='kubectl get namespace'
+alias kcc='kubectl config get-contexts'
+alias kdp='kubectl delete pod'
+alias kdd='kubectl delete deployment'
+alias kdj='kubectl delete job'
+alias kdf='kubectl delete -f'
+alias klf='kubectl logs -f'
+alias kaf='kubectl apply -f'
+alias kra='krender; kapply'
+
+kexec () {
+  kubectl exec -it "$1" "${2:-bash}"
+}
 
 function mkcd() {
   mkdir -p -- "$1" && cd -P -- "$1"
