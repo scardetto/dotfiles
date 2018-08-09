@@ -3,28 +3,25 @@ autoload colors && colors
 
 export RCRC=$HOME/dotfiles/rcrc
 
+# Add local bin
+export PATH=~/bin:$PATH
+export PATH=~/.local/bin:$PATH
+
+# Add dotnet core tools
+export PATH=$PATH:~/.dotnet/tools
+
 # Add cargo bin
 export PATH=$PATH:~/.cargo/bin
 
 # Add go bin
 export PATH=$PATH:~/go/bin
 
-# Add local bin
-export PATH=$PATH:~/bin
-
 # Java Home
 export JAVA_HOME=/Library/Java/Home
 
-# Load pyenv
-eval "$(pyenv init -)"
-
 # Configure Powerline
-powerline-daemon -q
-source /Library/Python/2.7/site-packages/powerline/bindings/zsh/powerline.zsh
-
-# Load Node Version Manager
-export NVM_DIR="/Users/rscaduto/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+/Users/rscaduto/.asdf/shims/powerline-daemon -q
+source /Users/rscaduto/.asdf/installs/python/3.6.5/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
 
 # Homebrew API token
 export HOMEBREW_GITHUB_API_TOKEN=89203abce7e693205b77e2bca2da8137b3b38d05

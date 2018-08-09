@@ -16,9 +16,11 @@ alias kgp='kubectl get pods'
 alias kgd='kubectl get deployments'
 alias kgs='kubectl get services'
 alias kgj='kubectl get jobs'
+alias kgc='kubectl get cronjobs'
 alias kgi='kubectl get ingress'
 alias kgn='kubectl get namespace'
 alias kcc='kubectl config get-contexts'
+alias kcu='kubectl config use-context'
 alias kdp='kubectl delete pod'
 alias kdd='kubectl delete deployment'
 alias kdj='kubectl delete job'
@@ -29,8 +31,4 @@ alias kra='krender; kapply'
 
 kexec () {
   kubectl exec -it "$1" "${2:-bash}"
-}
-
-function mkcd() {
-  mkdir -p -- "$1" && cd -P -- "$1"
 }

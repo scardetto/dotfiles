@@ -14,8 +14,9 @@ bind r source-file ~/.tmux.conf \; display "Configuration reloaded!"
 bind-key C-a send-prefix
 
 # Easy to remember panes
-bind | split-window -h
-bind - split-window -v
+bind c new-window      -c "#{pane_current_path}"
+bind | split-window -h -c "#{pane_current_path}"
+bind - split-window -v -c "#{pane_current_path}"
 
 # Resize panes
 bind -r H resize-pane -L 5
@@ -62,13 +63,12 @@ set -g message-attr bright
 # Status line
 # set -g status-left "#S|"
 
-# Monitor activity
 set-window-option -g monitor-activity on
 set -g visual-activity on
 
 # Enable powerline
-run-shell "powerline-daemon -q"
-source "/Library/Python/2.7/site-packages/powerline/bindings/tmux/powerline.conf"
+run-shell "/Users/rscaduto/.asdf/shims/powerline-daemon -q"
+source "/Users/rscaduto/.asdf/installs/python/3.6.5/lib/python3.6/site-packages/powerline/bindings/tmux/powerline.conf"
 
 # Fix copy/paste issue in Sierra
 set -g default-shell $SHELL
@@ -77,10 +77,7 @@ set -g default-command "reattach-to-user-namespace -l ${SHELL}"
 # Restore vim sessions
 set -g @resurrect-strategy-vim session
 
-# Launch tmux on startup
-set -g @continuum-boot 'on'
-set -g @continuum-boot-options 'iterm,fullscreen'
-
+# Initialize tmux plugins
 run-shell ~/.tmux/plugins/tmux-ressurect/resurrect.tmux
 run-shell ~/.tmux/plugins/tmux-continuum/continuum.tmux
 run-shell ~/.tmux/plugins/tmux-copycat/copycat.tmux
